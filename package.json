@@ -1,0 +1,16 @@
+{
+  "name": "testavimas",
+  "version": "1.0.0",
+  "description": "" ,
+  "main": "index.js",
+  "scripts": {
+    "02_04-uzduotys": "node --watch bandymai/02-04_uzduotys.js"
+    "function": "node --watch js/05-function.js",
+    "for": "node --watch js/04-for.js",
+    "if": "node --watch js/03-if.js",
+    "test": "echo \"Labas rytas Lietuva\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
