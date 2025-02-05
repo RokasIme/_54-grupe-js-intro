@@ -120,30 +120,75 @@ function work(day) {
   /* Parašykite programą, kuri patikrina, ar vartotojo 
   įvestas skaičius yra daliklis tiek 3, tiek 5. Kurį operatorių naudoti? */
 
+  function daliklis(num) {
+    if (num % 3 === 0 && num % 5 === 0){
+        return 'daliklis'
+    } else 
+        return 'šis skaičius nedalus iš 3 iš 5'
+  }
   
   console.log('');
   console.log('šešta');
+  console.log(daliklis(15));
+  console.log(daliklis(6));
+
 
 
 /* sukurkite funkciją, kuri pagal įvestą dienos tipą("darbo diena", "savaitgalis") 
 išveda atitinkamą veiklą: "Dirbti", "Ilsėtis".Kuri struktūra geriausiai tinka? */
 
-
+function ilsetis(diena) {
+    switch (diena){
+         case 'darbo diena':   
+             return 'Dirbti';
+         case 'savaitgalis':
+            return 'Ilsėtis';
+        default:
+        return 'netinkamai įvesta diena';
+    }
+}
+   
 console.log('');
 console.log('septinta');
+console.log(ilsetis('darbo diena'));
+console.log(ilsetis('savaitgalis'));
+
 
 
 /* Parašykite programą, kuri nustato,
  ar vartotojo įvestas metai yra keliamieji.Kurį operatorių naudoti? */
 
-const keliamiMetai = 
+function keliami(metai) {
+    return metai % 4 === 0 ? 'Keliamieji' : 'Nekeliamieji';
+}
+//Julijaus kalendoriuje tik iš 4 dalyba.
+// Grigaliaus kaledoriuje dar turi dalintis iš 100 ir iš 400
 
 console.log('');
 console.log('astunta');
+console.log(keliami(2004));
+console.log(keliami(1985));
+
 
  /* Sukurkite funkciją, kuri pagal vartotojo įvestą temperatūrą(Celsius) priskiria aprangos 
  rekomendaciją: "Kepurių nereikia","Kepurės reikalingos", "Geriau neik į lauką".
  Koks operatorius geriausiai tinka? */
 
+ function kepure(celsius) {
+    switch (true) {
+        case (celsius < -10):
+            return 'Geriau neik į lauką'
+        case (celsius >= -10 && celsius < 12):
+            return 'Kepurės reikalingos'
+        case (celsius >= 12):
+            return 'Kepurės nereikia';
+        default:
+            return 'netinkamai įvesta temperatūra';
+        }
+  }
+
 console.log('');
 console.log('devinta');
+console.log(kepure(-20));
+console.log(kepure(10));
+console.log(kepure(25));
