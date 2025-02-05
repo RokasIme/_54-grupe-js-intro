@@ -63,6 +63,7 @@ console.log(Math.abs(5));
 
 console.log(Math.sin(30)); // sinusas skaičiuojamas Radianais
 console.log(Math.cbrt(8)); // kubinė šaknis
+console.log(Math.cos(30 * Math.PI / 180)); // Laipsniai paversti į Radianus
 
 // Apvalinimas
 console.log('Ceil apvalina į viršų');
@@ -83,4 +84,7 @@ console.log(Math.trunc(9.1));
 console.log(Math.trunc(-9.1));
 console.log(Math.trunc(-9.5));
 
+console.log(Math.sign(-3)); // gražina tik teigimas ar neigimas +- 1 arba +-0
+
+console.log(Math.pow(2, 3));
 
