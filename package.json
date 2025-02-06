@@ -1,9 +1,12 @@
 {
   "name": "testavimas",
   "version": "1.0.0",
-  "description": "" ,
+  "description": "",
   "main": "index.js",
   "scripts": {
+    "string:method": "node --watch js/variables/08-string-method.js",
+    "string": "node --watch js/variables/07-string.js",
+    "02-06": "node --watch bandymai/02-06_uzduotys.js",
     "02-05": "node --watch bandymai/02-05_uzduotys.js",
     "numbers": "node --watch js/variables/06-numbers.js",
     "02_04-uzduotys": "node --watch bandymai/02-04_uzduotys.js",

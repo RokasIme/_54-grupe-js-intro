@@ -192,7 +192,18 @@ console.log("");
 console.log("astunta");
 console.log(keliami(2004));
 console.log(keliami(1985));
-console.log(keliami(400));
+console.log(keliami(500));
+
+function keliami2(met) {
+  if (new Date(met, 1, 29).getDate() === 29) {
+    return true;
+  }
+  return false;
+}
+console.log("--------------------");
+console.log(keliami2(2004));
+console.log(keliami2(1985));
+console.log(new Date());
 
 /* Sukurkite funkciją, kuri pagal vartotojo įvestą temperatūrą(Celsius) priskiria aprangos 
  rekomendaciją: "Kepurių nereikia","Kepurės reikalingos", "Geriau neik į lauką".
