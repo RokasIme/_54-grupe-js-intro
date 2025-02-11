@@ -151,3 +151,65 @@ console.log("pomidoras".slice());
 console.log("pomidoras".slice(2, 6));
 console.log("pomidoras".slice(2, -3));
 console.log("pomidoras".slice(-4));
+
+console.clear();
+
+console.log("Pomidor2 ir 4 agurkai".toLocaleUpperCase());
+console.log("Pomidor2 ir 4 agurkai".toLowerCase());
+
+const randomNumber = 215131;
+
+console.log(56515, (65324).toString());
+console.log(56515, randomNumber.toString());
+console.log("" + randomNumber);
+console.log(`${randomNumber}`);
+
+console.log("<", "     pomidoras       ", ">");
+console.log("pomidoras");
+
+const formUsername = " Grietine  ";
+console.log(formUsername.length);
+console.log(formUsername.replaceAll(" ", "").length);
+
+const hi = "    Labas   rytas,        Lietuva!";
+console.log(hi);
+console.log(hi.length);
+console.log(hi.trim().length);
+console.log(hi.trim().replace("   ", " ").replace("        ", " "));
+console.log(
+  hi.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll("  ", " ")
+);
+
+// ar turi du tarpus?
+console.log(hi.includes("  "));
+
+// gali tikrinti teksto ilgį ir kais jis nebekis, vadinasi nebėra tarpų
+
+console.clear();
+
+const text123 = "pirmas antras trečias";
+const dictionary = text123.split(" ");
+const wordCount = dictionary.length;
+
+console.log(3);
+console.log(text123);
+console.log(text123[0]);
+console.log(dictionary[0]);
+
+const js = `If String.raw() is called with an object whose raw property doesn't have a length property or a non-positive length, it returns an empty string "". If substitutions.length < strings.raw.length - 1 (i.e. there are not enough substitutions to fill the placeholders — which can't happen in a well-formed tagged template literal), the rest of the placeholders are filled with empty strings.`;
+const sentence = js.split(".");
+console.log(sentence);
+console.log(sentence.length);
+
+console.log("duona".split("o"));
+console.log("duona".split("u"));
+console.log("duona".split("g"));
+console.log("duona".split("d"));
+console.log("duona".split("a"));
+console.log("duona".split("uo"));
+console.log("duona".split("uon"));
+
+console.log("vasara".split("a"));
+console.log("vasara".split(""));
+console.log("vasara".split("").length); /* taip nedaryti */
+console.log("vasara".length);

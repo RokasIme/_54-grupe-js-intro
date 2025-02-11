@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "array:method": "node --watch js/variables/09-array-method.js",
     "string:uzduotys": "node --watch bandymai/02-07_string-metodai.js",
     "string:method": "node --watch js/variables/08-string-method.js",
     "string": "node --watch js/variables/07-string.js",

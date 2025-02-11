@@ -149,10 +149,34 @@ for (i = 0; i < textarr.length; i++) {
 console.log(firstletters);
 
 // 12. Raskite pirmą žodį string'e "Hello World!".
+const pasisveikinimas = "Hello World!";
+console.log(pasisveikinimas.split(" ")[0]);
 
 // 13. Pašalinkite paskutinius 3 simbolius string'e "JavaScript" ir atspausdinkite rezultatą.
 console.log(tekstas.slice(0, -3));
 
 // 14. Prie string'o "Likusios dienos: " pridėkite skaičių 5 iš daysLeft kintamojo.
+let daysLeft = "8";
 
-// 15. Tekste "mokytojas" pakeiskite pabaigą į "ėja", kad gautumėte "mokytoja".
+console.log(`Likusios dienos: 5 iš ${daysLeft}`);
+
+// 15. Tekste "mokytojas" pakeiskite pabaigą į "oja", kad gautumėte "mokytoja".
+const tekstas7 = "Į mokyklą atvyko mokytojas";
+const tekstas7split = tekstas7.split(" ");
+
+for (let i = 0; i < tekstas7split.length; i++) {
+  if (tekstas7split[i] === "mokytojas") {
+    tekstas7split[i] = "mokytojas".slice(0, -4) + "oja";
+  }
+}
+
+console.log(tekstas7split.join(" "));
+
+// 15.2 antras variantas
+const tekstas8 = "Mokytojas atėjo ir tarė. Ryte mokytojas vaikšto ";
+const textFemale = tekstas8
+  .replaceAll("mokytojas", "mokytoja")
+  .replaceAll("Mokytojas", "Mokytoja");
+console.log(textFemale);
+
+// include metodui parašyti ciklą include('asdsdfsf', 'a')
