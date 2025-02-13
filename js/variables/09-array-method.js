@@ -140,3 +140,88 @@ if (studentCount === 0) {
 } else {
   console.log(`Sarase yra "${searchStudent}":${studentCount}`);
 }
+
+console.clear();
+
+const medziai = [];
+console.log(medziai);
+
+//push įtraukia į masyvo galą
+medziai.push("ąžuolas");
+console.log(medziai);
+
+medziai.push("egle");
+console.log(medziai);
+
+medziai.push("beržas");
+console.log(medziai);
+
+// POP pašalina elementą iš galo
+medziai.pop();
+console.log(medziai);
+
+//UNSHIF įtraukia į masyvo pradžią
+medziai.unshift("pušis");
+console.log(medziai);
+
+medziai.unshift("kedras");
+console.log(medziai);
+
+//Shift šalina iš mayvo priekio
+medziai.shift();
+console.log(medziai);
+
+console.log([1, 2, 3].concat([4, 5]));
+
+console.log([9, 99, 999, 9999].slice(1, -1));
+
+//SPLICE - šalina nuo iki, iš vidurio (gražina atai kas ištrinta)
+
+const sp1 = [1, 2, 3, 4, 5, 6, 7];
+console.log(sp1);
+
+const sp2 = sp1.splice(2, 3);
+console.log(sp2);
+
+console.log(sp1);
+
+console.clear();
+
+const text = "Labas rytas Lietuva";
+const words = text.split(" ");
+console.log(words);
+
+const wordsFromS = text.split("s");
+console.log(wordsFromS);
+
+const textWithDashes = words.join();
+console.log(textWithDashes);
+
+const textToStr = "" + words;
+console.log(textToStr);
+
+const textJoin1 = words.join(" ");
+console.log(textJoin1);
+
+const textJoin2 = words.join("-");
+console.log(textJoin2);
+
+const textJoin4 = words.join("(o.o)");
+console.log(textJoin4);
+
+const rev = [1, 2, 3];
+console.log(rev);
+
+rev.reverse();
+console.log(rev);
+
+// Labas rytas Lietuva -> Lietuva rytas Labas
+
+const lrl = "Labas rytas Lietuva".split(" ").reverse().join(" ");
+
+console.log(lrl);
+
+//alus -> sula
+const alus = "alus".split("").reverse().join("");
+
+console.log(alus);

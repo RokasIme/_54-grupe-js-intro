@@ -157,20 +157,97 @@ function beTarpu(a) {
 
   return a;
 }
+
+console.log("     Keturiolikta");
 console.log(beTarpu("Labas pasauli"));
 
 // 15. Parašykite funkciją, kuri patikrina, ar string'e yra daugiau nei 10 simbolių.
 // (Pvz., arIlgas("JavaScript") → true, arIlgas("Labas") → false.)
 
+function arIlgas(a) {
+  if (a.length >= 10) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log("     Penkiolikta");
+console.log(arIlgas("JavaScript"));
+console.log(arIlgas("Labas"));
+
 // 16. Sukurkite for ciklą, kuris išveda daugybos lentelę 5(nuo 1 iki 10).
+console.log("     Šešiolikta");
+
+let sandauga = 0;
+for (let i = 1; i <= 10; i++) {
+  sandauga = 5 * [i];
+  console.log("5 x " + [i] + ` = ${sandauga}`);
+}
 
 // 17. Parašykite funkciją, kuri priima stringą ir pakeičia visas "a" raides į "@".
 // (Pvz., keistiRaide("banana") → "b@n@n@".)
+const b = "banana";
+function keistiRaide(a) {
+  return a.replaceAll("a", "@");
+}
+
+console.log("     Septyniolikta");
+console.log(keistiRaide("banana"));
 
 // 18. Sukurkite funkciją, kuri sugeneruoja stringą "**********"(10 žvaigždučių), naudojant for ciklą.
+console.log("     Aštuoniolikta");
+
+function stringZvaigzde(a) {
+  for (let i = 0; i < 10; i++) {
+    a += "*";
+  }
+  return a;
+}
+console.log(stringZvaigzde(""));
 
 // 19. Parašykite funkciją, kuri priima skaičių ir grąžina visus jo daliklius(išskyrus 1 ir patį save).
 // (Pvz., dalikliai(12) →[2, 3, 4, 6].)
+console.log("     Devyiolikta");
+
+let dalikliuEile = [];
+
+function dalikliai(a) {
+  for (i = 2; i < a; i++) {
+    if (a % i === 0) {
+      dalikliuEile = dalikliuEile.concat(i);
+    }
+  }
+  return dalikliuEile;
+}
+console.log(dalikliai(12));
 
 // 20. Sukurkite funkciją, kuri tikrina, ar pateiktas skaičius yra pirminis.
 // (Pvz., arPirminis(7) → true, arPirminis(8) → false.)
+
+let eile = 0;
+
+function arPirminis(a) {
+  for (i = 2; i < a; i++) {
+    if (a % i === 0) {
+      eile += i;
+    }
+  }
+  return eile === 0;
+}
+
+console.log("     Dvidešimta");
+console.log(arPirminis(7));
+console.log(arPirminis(8));
+
+// Antras variantas pirminio pagrindinis
+
+function isPrime(num) {
+  if (num < 2) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}
+
+console.clear();
