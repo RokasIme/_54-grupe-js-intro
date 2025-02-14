@@ -183,9 +183,11 @@ console.log(textFemale);
 const text8 = "Ejo eziukas misku, pamate lape";
 const textSplit = text8.split(" ");
 const ieskomas = "lape";
+let rezultatas = "Tokio žodžio nėra";
 
 for (let i = 0; i < textSplit.length; i++) {
   if (textSplit[i] === ieskomas) {
-    console.log("Tekste yra ieškomas žodis");
+    rezultatas = "Tekste yra ieškomas žodis";
   }
 }
+console.log(rezultatas);
