@@ -175,7 +175,7 @@ console.log([1, 2, 3].concat([4, 5]));
 
 console.log([9, 99, 999, 9999].slice(1, -1));
 
-//SPLICE - šalina nuo iki, iš vidurio (gražina atai kas ištrinta)
+//SPLICE - šalina nuo iki, iš vidurio (gražina tai kas ištrinta)
 
 const sp1 = [1, 2, 3, 4, 5, 6, 7];
 console.log(sp1);

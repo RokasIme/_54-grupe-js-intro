@@ -91,7 +91,9 @@ console.log(kartotinis);
 
 // Sprendimas su filter metodu:
 // Jūsų kodas čia...
-console.log("filter kai išmoksiu");
+const kartotinisFilter = numbers4.filter((num) => num === target);
+
+console.log(kartotinisFilter.length + " Filter");
 
 // =============================================
 // Užduotis 5: Išfiltruoti ir sukurti naują masyvą, kuriame būtų tik teigiami skaičiai
@@ -112,7 +114,8 @@ console.log(teigiami);
 
 // Sprendimas su filter metodu:
 // Jūsų kodas čia...
-console.log("filter kai išmoksiu");
+const teigiamiFilter = numbers5.filter((num) => num > 0);
+console.log(teigiamiFilter + " - filter");
 
 // =============================================
 // Užduotis 6: Rasti visų masyvo elementų sandaugą
@@ -332,10 +335,24 @@ const numbers14 = [5, 3, 9, 1, 7];
 
 // Sprendimas su for ciklu:
 // Jūsų kodas čia...
+let biggest1 = 0;
+let secondBig = 0;
+
+for (let i = 0; i < numbers14.length; i++) {
+  if (numbers14[i] > biggest1) {
+    biggest1 = numbers14[i];
+  }
+}
+for (let i = 0; i < numbers14.length; i++) {
+  if (numbers14[i] < biggest1 && numbers14[i] > secondBig) {
+    secondBig = numbers14[i];
+  }
+}
+console.log(secondBig);
 
 // Sprendimas su sort metodu (kopijuojame, kad nepakeistume originalo):
 // Jūsų kodas čia...
-
+console.log([5, 3, 9, 1, 7].sort((a, b) => a - b).at(-2) + " - sort");
 // =============================================
 // Užduotis 15: Suskaičiuoti, kiek masyvo elementų yra didesni už duotą slenkstį
 // =============================================
@@ -346,9 +363,17 @@ const threshold = 20;
 
 // Sprendimas su for ciklu:
 // Jūsų kodas čia...
+let didesni = [];
+for (let i = 0; i < numbers15.length; i++) {
+  if (numbers15[i] > threshold) {
+    didesni.push(numbers15[i]);
+  }
+}
+console.log(didesni.length);
 
 // Sprendimas su filter:
 // Jūsų kodas čia...
+console.log(numbers15.filter((a) => a > threshold).length + " - Filter");
 
 // =============================================
 // Užduotis 16: Sujungti du masyvus į vieną
@@ -361,8 +386,19 @@ const arrayB = [4, 5, 6];
 // Sprendimas su for ciklu:
 // Jūsų kodas čia...
 
+const sujungtasMasyvas1 = [];
+for (let i = 0; i < arrayA.length; i++) {
+  sujungtasMasyvas1.push(arrayA[i]);
+}
+for (let i = 0; i < arrayB.length; i++) {
+  sujungtasMasyvas1.push(arrayB[i]);
+}
+console.log(sujungtasMasyvas1);
+
 // Sprendimas su concat metodu:
 // Jūsų kodas čia...
+let sujungtasMasyvas = [];
+console.log(sujungtasMasyvas.concat(arrayA, arrayB) + " - Concat");
 
 // =============================================
 // Užduotis 17: Išlyginti (flatten) masyvą, kurio elementai yra masyvai (vieno lygmens)
@@ -378,9 +414,24 @@ const nestedArray = [
 
 // Sprendimas su for ciklu:
 // Jūsų kodas čia...
+let flattArray = [];
+
+for (let i = 0; i < nestedArray.length; i++) {
+  flattArray.push(...nestedArray[i]);
+}
+
+console.log(flattArray);
+
+let newArr = [];
+for (let i = 0; i < nestedArray.length; i++)
+  for (let j = 0; j < nestedArray[i].length; j++)
+    newArr.push(nestedArray[i][j]);
+
+console.log(newArr, "- By Mindaugas");
 
 // Sprendimas su flat metodu:
 // Jūsų kodas čia...
+console.log(nestedArray.flat() + " - flat metodas");
 
 // =============================================
 // Užduotis 18: Rasti bendrus elementus tarp dviejų masyvų
@@ -392,9 +443,18 @@ const arrB = [3, 4, 5, 6];
 
 // Sprendimas su for ciklu:
 // Jūsų kodas čia...
+let bendri = [];
+for (let i = 0; i < arrA.length; i++) {
+  if (arrB.includes(arrA[i])) {
+    bendri.push(arrA[i]);
+  }
+}
+console.log(bendri);
 
 // Sprendimas su filter:
 // Jūsų kodas čia...
+
+console.log(arrA.filter((a) => arrB.some((b) => a === b)) + " = Filter");
 
 // =============================================
 // Užduotis 19: Sukurti objektą, kuriame masyvo elementai suskirstyti į "lyginiai" ir "nelyginiai"
@@ -405,10 +465,30 @@ const numbers19 = [1, 2, 3, 4, 5, 6];
 
 // Sprendimas su for ciklu:
 // Jūsų kodas čia...
+const objektasLyg = { lyginiai: [], nelyginiai: [] };
+for (let i = 0; i < numbers19.length; i++) {
+  if (numbers19[i] % 2 === 0) {
+    objektasLyg.lyginiai.push(numbers19[i]);
+  } else {
+    objektasLyg.nelyginiai.push(numbers19[i]);
+  }
+}
+console.log(objektasLyg);
 
 // Sprendimas su reduce:
 // Jūsų kodas čia...
-
+const objektasReduce = numbers19.reduce(
+  (acc, cur) => {
+    if (cur % 2 === 0) {
+      acc.lyginiai.push(cur);
+    } else {
+      acc.nelyginiai.push(cur);
+    }
+    return acc;
+  },
+  { lyginiai: [], nelyginiai: [] }
+);
+console.log(objektasReduce, " - Reduce");
 // =============================================
 // Užduotis 20: Sukurti naują masyvą, kuriame kiekvienas elementas yra pradinio masyvo elementų kumuota suma (cumulative sum)
 // Pvz.: [1, 2, 3, 4] -> [1, 3, 6, 10]
@@ -419,6 +499,26 @@ const numbers20 = [1, 2, 3, 4];
 
 // Sprendimas su for ciklu:
 // Jūsų kodas čia...
+let sumArray = [];
+let lastCount = 0;
+
+for (let i = 0; i < numbers20.length; i++) {
+  lastCount = lastCount + numbers20[i];
+  sumArray.push(lastCount);
+}
+console.log(sumArray);
 
 // Sprendimas su reduce:
 // Jūsų kodas čia...
+
+const numb20Red = (arr) => {
+  return arr.reduce((sum1, a, i) => {
+    if (i === 0) {
+      sum1.push(a);
+    } else {
+      sum1.push(sum1[i - 1] + a);
+    }
+    return sum1;
+  }, []);
+};
+console.log(numb20Red(numbers20));
