@@ -137,22 +137,22 @@ console.log(doubleWords1);
 
 const doubleWords2 = words.filter((w) => w.indexOf(w[0], 1) > 0);
 console.log(doubleWords2);
-
+console.clear();
 const colors = ["red", "green", "blue", "yellow", "red", "orange"];
-console.log(colors);
+const colors2 = ["green", "red", "red"];
+const colors3 = ["red", "red", "orange", "red"];
+const colors4 = ["red", "green", "blue", "yellow"];
 
-const colors2 = colors.map((item, index, list) => item);
-console.log(colors2);
+const colorsCopy2 = colors.map((item, index, list) => item);
+console.log(colorsCopy2);
 
-const colors3 = colors.map((item, index, list) => list[index]);
-console.log(colors3);
+const colorsCopy3 = colors.map((item, index, list) => list[index]);
+console.log(colorsCopy3);
 
-// rasti visas spalvas, kurios kartojasi
 // rasti visas spalvas, kurios yra unikalios
 
-const colorRepeat = colors.filter(
-  (color, index, list) => list.indexOf(color) !== list.lastIndexOf(color)
-);
+/*
+const colorRepeat = colors.filter(repeatingValues);
 console.log("-----");
 console.log(colorRepeat);
 
@@ -160,3 +160,24 @@ const colorRepeat1 = colors.filter(
   (color, index, list) => list.indexOf(color) !== index
 );
 console.log(colorRepeat1);
+*/
+
+// ['red'];
+// ['red', 'red'];
+// ["green", "blue", "yellow", "orange"]
+
+// rasti visas spalvas, kurios kartojasi
+// ["red", "red", "orange", "red"]:
+// 0 list.indexOf(red) !== list.lastIndexOf(red): 0 !== 3 --> true;
+// 1 list.indexOf(red) !== list.lastIndexOf(red): 0 !== 3 --> true;
+// 2 list.indexOf(orange) !== list.lastIndexOf(orange): 2 !== 2 --> false;
+// 3 list.indexOf(red) !== list.lastIndexOf(red): 0 !== 3 --> true;
+// Išvada: sprendimas logiškai nėra teisingas, tačiau gaunamas rezultatas yra teisingas 👀👀👀
+
+function repeatingValues(color, index, list) {
+  return list.indexOf(color) !== list.lastIndexOf(color);
+}
+console.log(colors.filter(repeatingValues));
+console.log(colors2.filter(repeatingValues));
+console.log(colors3.filter(repeatingValues));
+console.log(colors4.filter(repeatingValues));

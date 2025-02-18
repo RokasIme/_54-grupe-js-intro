@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "02-18": "node --watch bandymai/02-18_pazymiu_vidurkiai.js",
+    "object": "node --watch js/variables/13-object.js",
+    "array:sort": "node --watch js/functions/12-array-sort.js",
     "array:hof": "node --watch js/variables/11-array-hof.js",
     "arrow": "node --watch js/functions/10-arrow.js",
     "02-13": "node --watch bandymai/02-13_uzduotys.js",
