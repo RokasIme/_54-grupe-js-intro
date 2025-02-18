@@ -3,31 +3,77 @@
  *
  * Pvz. faktorialas(5) -> 120
  */
+console.log("        faktorialas");
+function faktorialas(num) {
+  let fak = num;
+  for (let i = num; i > 1; i--) {
+    fak = fak * (i - 1);
+  }
+  return fak;
+}
+console.log(faktorialas(5));
 
 /**
  * Parašykite funkciją, kuri patikrina ar string'as yra palindromas.
  *
  * Pvz. arPalindromas("level") -> true, arPalindromas("hello") -> false
  */
+console.log("        arPalindromas");
+function arPalindromas(zodis) {
+  zodisSplit = zodis.split("");
+  if (zodis.split("").join("") === zodisSplit.reverse().join("")) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(arPalindromas("level"));
+console.log(arPalindromas("hello"));
 
 /**
  * Sukurkite funkciją, kuri priima masyvą skaičių ir grąžiną antrą didžiausią skaičių.
  *
  * Pvz. antrasDidziausias([10, 5, 8, 20]) -> 10
  */
+console.log("        antrasDidziausias");
+
+let antras = [];
+function antrasDidziausias(mas) {
+  mas.sort((a, b) => a - b);
+  antras = mas.at(-2);
+  return antras;
+}
+
+console.log(antrasDidziausias([10, 5, 8, 20]));
 
 /**
  * Parašykite funkciją, kuri sugeneruoja atsitiktinį slaptažodį iš didžiųjų, mažųjų raidžių ir skaičių.
  *
  * Pvz. generuotiSlaptazodi(8) -> "aB3dE5kL"
  */
+console.log("        generuotiSlaptazodi");
+const galimiSimbol =
+  "0123456789abcdefghijklmnoprstuvzABCDEFGHIJKLMNOPRSTUVZyYwW";
+let slaptazodis = "";
+let randomNumber = 0;
+function generuotiSlaptazodi(ilgis) {
+  for (let i = 0; i < ilgis; i++) {
+    randomNumber = Math.floor(Math.random() * (galimiSimbol.length + 1));
+    slaptazodis += galimiSimbol.charAt(randomNumber);
+  }
+  return slaptazodis;
+}
+
+console.log(generuotiSlaptazodi(8));
 
 /**
  * Parašykite funkciją, kuri tikrina ar skaičius yra Fibonačio skaičius.
- *
+ * Seka prasideda šiais skaičiais: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377. Kiekvienas šios sekos skaičius lygus dviejų prieš jį einančių skaičių sumai.
  * Pvz. arFibonacio(8) → true, arFibonacio(10) → false
  */
-
+console.log("        arFibonacio");
+function arFibonacio(num) {}
+console.log(arFibonacio(8));
 /**
  * Parašykite funkciją, kuri iš teksto pašalina visus skaičius.
  *
@@ -55,8 +101,9 @@
 /**
  * Raskite klaidą ir ištaisykite funkciją, kad ji pakeistų tiek didžiąsias, tiek mažąsias "a" į "@".
  */
-
-const keistiRaide = (string) => string.replaceAll("a" || "A", "@");
+console.log('        "a" į "@"');
+const keistiRaide = (string) =>
+  string.replaceAll("a", "@").replaceAll("A", "@");
 
 console.log(keistiRaide("Banana"));
 console.log(keistiRaide("Ananasas"));
