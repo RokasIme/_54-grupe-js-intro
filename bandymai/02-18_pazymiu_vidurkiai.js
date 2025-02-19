@@ -56,6 +56,10 @@ console.log(
 console.log(
   `${maryte1} pazymiu vidurkis, ${vidurkis(maryteIlgis, maryteMarks)} `
 );
+/*
+
+
+*/
 
 const school = {
   name: "Baltijos Technologijų Institutas",
@@ -90,7 +94,7 @@ const school = {
 /**
  * 1. Parašykite funkciją calculateClassAverage(classObj), kuri priims klasės objektą ir grąžins jos vidutinį pažymį.
  */
-const pirmaA = school.classes[0].name;
+/* const pirmaA = school.classes[0].name;
 const pazymiaiA = school.classes[0].students[0].grades;
 const pazymiaiA1 = school.classes[0].students[1].grades;
 const pazymiaiA2 = school.classes[0].students[2].grades;
@@ -148,13 +152,87 @@ function calculateClassAverage2(classObj) {
 }
 console.log(`${pirmaBName} klasės vidurkis ${calculateClassAverage2(pirmaB)}`);
 
+
+
+
+*/
+function average(list) {
+  let sum = 0;
+
+  for (let i = 0; i < list.length; i++) {
+    sum += list[i];
+  }
+
+  return sum / list.length;
+}
+
+/* 1. Parašykite funkciją calculateClassAverage(classObj), kuri priims klasės objektą ir grąžins jos vidurkį (visų mokinių individualių vidurkių vidurkis)
+ */
+
+function calculateClassAverage(classObj) {
+  const studentsAverages = [];
+  for (let s = 0; s < classObj.students.length; s++) {
+    studentsAverages.push(average(classObj.students[s].grades));
+  }
+  return average(studentsAverages);
+}
+
+console.log(calculateClassAverage(school.classes[0]));
+console.log(calculateClassAverage(school.classes[1]));
+console.log(calculateClassAverage(school.classes[2]));
+
 /**
  * 2. Parašykite funkciją calculateSchoolAverages(schoolObj), kuri apskaičiuos visų mokyklos klasių vidurkius ir grąžins juos masyve.
  */
+function calculateScoolAverage(schoolObj) {
+  const averages = [];
+  for (let c = 0; c < schoolObj.classes.length; c++) {
+    averages.push(calculateClassAverage(schoolObj.classes[c]));
+  }
+  return averages;
+}
 
+console.log(calculateScoolAverage(school));
 /**
  * 3. Išrikiuokite klases pagal vidurkį (nuo didžiausio iki mažiausio) ir išveskite jas į konsolę formatu:
  * 1C - 8.5
  * 1A - 8.0
  * 1B - 6.5
  */
+
+const classAverages = [];
+
+for (let c = 0; c < school.classes.length; c++) {
+  const average = calculateClassAverage(school.classes[c]);
+  classAverages.push({
+    name: school.classes[c].name,
+    average: average,
+  });
+}
+classAverages.sort((a, b) => b.average - a.average);
+console.log(classAverages);
+
+for (let a = 0; a < classAverages.length; a++) {
+  console.log(
+    `${classAverages[a].name} - ${classAverages[a].average.toFixed(2)}`
+  );
+}
+
+// 2 variantas su ciklu cikle
+
+for (let c = 0; c < school.classes.length; c++) {
+  const schoolClass = school.classes[c];
+  let classSum = 0;
+
+  for (let s = 0; s < schoolClass.students.length; s++) {
+    const student = schoolClass.students[s];
+    let studentGradeSum = 0;
+
+    for (let g = 0; g < student.grades.length; g++) {
+      studentGradeSum += student.grades[g];
+    }
+    classSum += studentGradeSum / student.grades.length;
+  }
+  const classAverage = classSum / schoolClass.students.length;
+  console.log("--->", classAverage.toFixed(2));
+}

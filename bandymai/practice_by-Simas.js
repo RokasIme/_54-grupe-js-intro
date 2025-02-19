@@ -71,14 +71,54 @@ console.log(generuotiSlaptazodi(8));
  * Seka prasideda šiais skaičiais: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377. Kiekvienas šios sekos skaičius lygus dviejų prieš jį einančių skaičių sumai.
  * Pvz. arFibonacio(8) → true, arFibonacio(10) → false
  */
+let fibo = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377];
+
 console.log("        arFibonacio");
-function arFibonacio(num) {}
+
+function arFibonacio(num) {
+  for (let i = 0; i < num; i++) {
+    if (fibo.includes(num)) {
+      return true;
+    } else if (num > fibo.at(-1)) {
+      fibo.push(fibo.at(-1) + fibo.at(-2));
+    } else {
+      return false;
+    }
+  }
+}
+
 console.log(arFibonacio(8));
+console.log(arFibonacio(10));
+console.log(arFibonacio(832040));
+console.log(arFibonacio(832050));
+
 /**
  * Parašykite funkciją, kuri iš teksto pašalina visus skaičius.
  *
  * Pvz. beSkaiciu("Labas rytas, Lietuva 2025!") → "Labas rytas, Lietuva!"
  */
+console.log("        beSkaiciu");
+
+function beSkaiciu(text) {
+  const skaiciai = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+  const textSplit = text.split("");
+  const masyvasBeSkaiciu = [];
+  const masyvasBeTarpu = [];
+  for (let i = 0; i < textSplit.length; i++) {
+    if (!skaiciai.includes(textSplit[i])) {
+      masyvasBeSkaiciu.push(textSplit[i]);
+    }
+  }
+  for (let i = 0; i < masyvasBeSkaiciu.length; i++) {
+    if (masyvasBeSkaiciu[i] === " " && "!".includes(masyvasBeSkaiciu[i + 1])) {
+      continue;
+    }
+    masyvasBeTarpu.push(masyvasBeSkaiciu[i]);
+  }
+
+  return masyvasBeTarpu.join("");
+}
+console.log(beSkaiciu("Labas rytas, Lietuva 2025!"));
 
 /**
  * Sukurkite funkciją, kuri priima skaičių masyvą ir grąžina visus unikalius skaičius (pašalina pasikartojančius).
