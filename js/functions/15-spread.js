@@ -1,4 +1,4 @@
-// Spread pa6alina lau=tinius skliaustus ir įkelia tik reikšmes
+// Spread pašalina laužtinius skliaustus ir įkelia tik reikšmes
 
 const a = [1, 2, 3, 4];
 const b = [...a];
@@ -84,3 +84,19 @@ const objD = {
 };
 
 console.log(objD);
+
+console.clear();
+
+const k = [[4], [5, 55], 7, [6, 66, 666]];
+let l1 = [];
+
+for (let i = 0; i < k.length; i++) {
+  const innerArray = k[i];
+
+  if (Array.isArray(innerArray)) {
+    l1.push(...innerArray);
+  } else {
+    l1.push(innerArray);
+  }
+}
+console.log(l1);

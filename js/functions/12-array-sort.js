@@ -57,5 +57,5 @@ function sortStudentsByName(a, b) {
     return 1;
   }
 }
-students.sort(sortStudentsByName());
+students.sort(sortStudentsByName);
 console.log(students);

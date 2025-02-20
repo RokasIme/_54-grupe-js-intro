@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dest": "node --watch js/functions/18-dest.js",
+    "loops": "node --watch js/loops/17-loops.js",
+    "typeof": "node --watch js/functions/16-typeof.js",
     "spread": "node --watch js/functions/15-spread.js",
     "ref": "node --watch js/variables/14-ref.js",
     "practice": "node --watch bandymai/practice_by-Simas.js",
