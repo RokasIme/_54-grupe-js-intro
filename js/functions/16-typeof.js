@@ -1,6 +1,12 @@
 console.log(typeof 4, typeof 0, typeof -7, typeof 3.14); // number
 console.log(typeof NaN, typeof Infinity, typeof -Infinity); // number
 console.log(typeof "", typeof "asd"); // string
+console.log(typeof true, typeof false); // boolean
+console.log(typeof undefined); //undefined
+
+console.log(typeof null); //object
+console.log(typeof {}, typeof { name: "Jonas" }); //object
+console.log(typeof [], typeof [4]); //object
 
 const a = null;
 if (a === null) {
@@ -49,4 +55,21 @@ function IsTrueObject(data) {
   {
   }
   return true;
+}
+
+function isTrueObject2(data) {
+  if (typeof data !== "object" || data === null || Array.isArray(data)) {
+    return false;
+  }
+
+  return true;
+}
+
+function isTrueObject3(data) {
+  return typeof data === "object" && data !== null && !Array.isArray(data);
+}
+
+const g = null;
+if (g === null) {
+  console.log("null???");
 }

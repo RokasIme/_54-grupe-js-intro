@@ -17,7 +17,7 @@ console.log(sum);
 // Sprendimas su array metodu (reduce):
 // Jūsų kodas čia...
 
-console.log(numbers1.reduce((sum, i) => sum + i, 0) + " - Reduce");
+console.log(numbers1.reduce((sum, num) => sum + num, 0) + " - Reduce");
 
 // =============================================
 // Užduotis 2: Suskaičiuoti, kiek masyvo elementų yra lyginiai
@@ -30,6 +30,7 @@ const numbers2 = [1, 2, 3, 4, 5, 6];
 // Jūsų kodas čia...
 let lyginiai = [];
 let kiekis = 0;
+
 for (let i = 0; i < numbers2.length; i++) {
   if (numbers2[i] % 2 === 0) {
     lyginiai = lyginiai + numbers2[i] + " ";

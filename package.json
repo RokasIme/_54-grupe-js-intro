@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "practice02": "node --watch bandymai/practice-02.js",
     "dest": "node --watch js/functions/18-dest.js",
     "loops": "node --watch js/loops/17-loops.js",
     "typeof": "node --watch js/functions/16-typeof.js",
