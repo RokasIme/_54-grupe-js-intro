@@ -490,6 +490,15 @@ const objektasReduce = numbers19.reduce(
   { lyginiai: [], nelyginiai: [] }
 );
 console.log(objektasReduce, " - Reduce");
+console.log(
+  numbers19.reduce(
+    (result, numberr) => (
+      result[numberr % 2 === 0 ? "odd" : "even"].push(numberr), result
+    ),
+    { odd: [], even: [] }
+  )
+);
+
 // =============================================
 // Užduotis 20: Sukurti naują masyvą, kuriame kiekvienas elementas yra pradinio masyvo elementų kumuota suma (cumulative sum)
 // Pvz.: [1, 2, 3, 4] -> [1, 3, 6, 10]

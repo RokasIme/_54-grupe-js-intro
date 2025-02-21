@@ -125,12 +125,68 @@ console.log(beSkaiciu("Labas rytas, Lietuva 2025!"));
  *
  * Pvz., unikalusSkaiciai([1, 2, 2, 3, 4, 4, 5]) → [1, 2, 3, 4, 5]
  */
+console.log("\n        UnikalūsSkaiciai");
+function unikalusSkaiciai(skaiciuEile) {
+  const unikalus = [];
+  for (let i = 0; i < skaiciuEile.length; i++) {
+    if (!unikalus.includes(skaiciuEile[i])) {
+      unikalus.push(skaiciuEile[i]);
+    }
+  }
+  return unikalus;
+}
+
+console.log(unikalusSkaiciai([1, 2, 2, 3, 4, 4, 5]));
 
 /**
  * Parašykite funkciją, kuri skaičiuoja, kiek kartų kiekviena raidė pasikartoja string‘e ir grąžina objektą.
  *
  * Pvz., skaiciuotiRaidesObj("banana") → { b: 1, a: 3, n: 2 }
  */
+console.log("\n        skaiciuotiRaidesObj");
+
+const naujasObj1 = {};
+function skaiciuotiRaidesObj1(stringas) {
+  for (let i = 0; i < stringas.length; i++) {
+    if (Object.hasOwn(naujasObj1, stringas[i])) {
+      naujasObj1[stringas[i]] = naujasObj1[stringas[i]] + 1; // naujas daiktas objekte be taško o su [ ] jei ateina is kazkokios funkcijos
+    } else {
+      naujasObj1[stringas[i]] = 1;
+    }
+  }
+
+  return naujasObj1;
+}
+
+console.log(skaiciuotiRaidesObj1("banana"));
+
+const naujasObj = { a: 0, b: 0, n: 0 };
+function skaiciuotiRaidesObj(stringas) {
+  for (let i = 0; i < stringas.length; i++) {
+    if (stringas[i] === "a") {
+      naujasObj.a = naujasObj.a + 1;
+    }
+    if (stringas[i] === "b") {
+      naujasObj.b = naujasObj.b + 1;
+    }
+    if (stringas[i] === "n") {
+      naujasObj.n = naujasObj.n + 1;
+    }
+  }
+  return naujasObj;
+}
+console.log("\ntik BANANA");
+
+console.log(skaiciuotiRaidesObj("banana"));
+
+// by Tadas
+const countChars2 = (str) => {
+  const obj = {};
+  for (const char of str) {
+    obj[char] = (obj[char] || 0) + 1;
+  }
+  return obj;
+};
 
 /**
  * Sukurkite funkciją, kuri patikrina, ar du string‘ai yra anagramos (turi tas pačias raides, tik kita tvarka).
@@ -141,7 +197,7 @@ console.log(beSkaiciu("Labas rytas, Lietuva 2025!"));
 /**
  * Raskite klaidą ir ištaisykite funkciją, kad ji pakeistų tiek didžiąsias, tiek mažąsias "a" į "@".
  */
-console.log('        "a" į "@"');
+console.log('\n        "a" į "@"');
 const keistiRaide = (string) =>
   string.replaceAll("a", "@").replaceAll("A", "@");
 

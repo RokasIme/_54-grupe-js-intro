@@ -94,3 +94,29 @@ function busiestRegion(miestas) {
   return IntensyviausiasRajonas;
 }
 console.log(`\n Intesyviausias miesto rajonas: ${busiestRegion(cityTraffic)} `);
+
+/**
+ * [3] Eismo intensyvumas vienam gyventojui
+ *
+ * Parašykite funkciją trafficPerPerson(region), kuri priima rajono objektą ir grąžina eismo srautą, tenkantį vienam gyventojui per savaitę.
+ *
+ * Pvz.: trafficPerPerson(cityTraffic[0]) turi grąžinti 0.056 (suapvalinta iki trijų skaičių po kablelio).
+ */
+
+/**
+ * [4] Sugeneruoti savaitės eismo ataskaitą
+ *
+ * Sukurkite funkciją generateTrafficReport(data), kuri priima miesto duomenų masyvą ir grąžina masyvą su tokiais objektais kiekvienam miesto rajonui:
+ * {
+ *      name: "Senamiestis",       // Rajono pavadinimas
+ *      avgTraffic: 120.71,        // Vidutinis eismo srautas rajone
+ *      bussiestDay: 200,          // Didžiausias fiksuotas eismo srautas kažkurią dieną
+ *      trafficPerPerson: 0.056    // Eismo intensyvumas vienam gyventojui
+ * }
+ */
+
+/**
+ * [EXTRA] Papildoma užduotis
+ *
+ * Jei norite iššūkio, pridėkite funkciją findLeastBusyDay(data), kuri priima miesto duomenų masyvą ir nustato mažiausio eismo dieną visame mieste. Ji turėtų grąžinti savaitės dienos pavadinimą (pvz., "Pirmadienis").
+ */
