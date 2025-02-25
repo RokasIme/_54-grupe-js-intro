@@ -81,15 +81,17 @@ rezultatas: “Pateikta netinkamo tipo reikšmė.”
 function skaitmenuKiekisSkaiciuje(kint) {
   if (
     typeof kint !== "number" ||
-    typeof kint === Infinity ||
-    typeof kint === -Infinity ||
+    kint === Infinity ||
+    kint === -Infinity ||
     isNaN(kint)
   ) {
     return "Pateikta netinkamo tipo reikšmė";
   }
 
   let skaitmenuKiekis = 0;
-  const kintSplit = String(kint).split("");
+  // const kintSplit = String(kint).split("");
+  const kintSplit = ("" + kint).split("");
+
   for (let i = 0; i < kintSplit.length; i++) {
     skaitmenuKiekis += 1;
   }
@@ -103,6 +105,10 @@ console.log(skaitmenuKiekisSkaiciuje(37060123456));
 console.log(skaitmenuKiekisSkaiciuje(true));
 console.log(skaitmenuKiekisSkaiciuje("asd"));
 console.log(skaitmenuKiekisSkaiciuje(NaN));
+console.log(skaitmenuKiekisSkaiciuje(-Infinity));
+console.log(skaitmenuKiekisSkaiciuje(Infinity));
+console.log(skaitmenuKiekisSkaiciuje(37060, 123456));
+console.log(skaitmenuKiekisSkaiciuje(3.14));
 
 /* Funkcija pavadinimu “didziausiasSkaiciusSarase”:
 priima vieną kintamąjį
@@ -133,16 +139,7 @@ function didziausiasSkaiciusSarase(x) {
     return "Pateikta netinkamo tipo reikšmė";
   }
 
-  if (
-    typeof x === "string" ||
-    typeof x === "number" ||
-    typeof x === "boolean" ||
-    typeof x === "undefined"
-    // isNaN(x)
-  ) {
-    return "Pateikta netinkamo tipo reikšmė";
-  }
-  if (x.length < 1) {
+  if (x.length === 0) {
     return "Pateiktas sąrašas negali būti tuščias.";
   }
   let didziausiasSkaicius = -Infinity;
@@ -165,6 +162,8 @@ console.log(didziausiasSkaiciusSarase([-1, -2, -3, -4, -5, -6, -7, -8]));
 console.log(didziausiasSkaiciusSarase("pomidoras"));
 console.log(didziausiasSkaiciusSarase([]));
 console.log(didziausiasSkaiciusSarase(NaN));
+console.log(didziausiasSkaiciusSarase(["a"]));
+console.log(didziausiasSkaiciusSarase([-5, 58, "a", 14, 0, 18]));
 
 /* 
 Funkcija pavadinimu “isrinktiRaides”:
@@ -249,7 +248,6 @@ console.log("\n      dalyba \n");
 function dalyba(num1, num2) {
   if (
     typeof num1 !== "number" ||
-    typeof num1 === "undefined" ||
     isNaN(num1) ||
     num1 === Infinity ||
     num1 === -Infinity
@@ -258,7 +256,6 @@ function dalyba(num1, num2) {
   }
   if (
     typeof num2 !== "number" ||
-    typeof num2 === "undefined" ||
     isNaN(num2) ||
     num2 === Infinity ||
     num2 === -Infinity ||
@@ -275,3 +272,6 @@ console.log(dalyba(25, 0)); // dalyba iš nulio negalima
 console.log(dalyba());
 console.log(dalyba("abs", 5));
 console.log(dalyba(true, 5));
+console.log(dalyba(-25, 5));
+console.log(dalyba(NaN, 5));
+console.log(dalyba(-Infinity, 5));

@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "mini:for": "node --watch bandymai/mini-for.js",
+    "mini:max": "node --watch bandymai/mini-max.js",
+    "mini:digits": "node --watch bandymai/mini-digits.js",
     "mini": "node --watch bandymai/mini.js",
     "summary": "node --watch js/summary.js",
     "practice02": "node --watch bandymai/practice-02.js",
