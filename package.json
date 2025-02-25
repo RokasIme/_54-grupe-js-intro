@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "mini": "node --watch bandymai/mini.js",
+    "summary": "node --watch js/summary.js",
     "practice02": "node --watch bandymai/practice-02.js",
     "dest": "node --watch js/functions/18-dest.js",
     "loops": "node --watch js/loops/17-loops.js",

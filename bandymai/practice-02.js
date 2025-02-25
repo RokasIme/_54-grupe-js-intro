@@ -103,6 +103,26 @@ console.log(`\n Intesyviausias miesto rajonas: ${busiestRegion(cityTraffic)} `);
  * Pvz.: trafficPerPerson(cityTraffic[0]) turi grąžinti 0.056 (suapvalinta iki trijų skaičių po kablelio).
  */
 
+function trafficPerPerson(region) {
+  return Number(
+    (
+      region.traffic.reduce((sum, num) => sum + num, 0) / region.population
+    ).toFixed(3)
+  );
+}
+
+console.log(
+  `\n ${cityTraffic[0].name} srautas vienam gyventojui ${trafficPerPerson(
+    cityTraffic[0]
+  )} automobilio per savaitę`
+);
+
+console.log(
+  `\n ${cityTraffic[1].name} srautas vienam gyventojui ${trafficPerPerson(
+    cityTraffic[1]
+  )} automobilio per savaitę`
+);
+
 /**
  * [4] Sugeneruoti savaitės eismo ataskaitą
  *
@@ -114,9 +134,55 @@ console.log(`\n Intesyviausias miesto rajonas: ${busiestRegion(cityTraffic)} `);
  *      trafficPerPerson: 0.056    // Eismo intensyvumas vienam gyventojui
  * }
  */
+const miestoMasyvas = {};
+function generateTrafficReport(data) {
+  miestoMasyvas.name = data.name;
+  miestoMasyvas.averageTraffic = averageTraffic(data);
+  miestoMasyvas.bussiestDay = Math.max(...data.traffic);
+  miestoMasyvas.trafficPerPerson = trafficPerPerson(data);
+  return miestoMasyvas;
+}
+
+console.table(generateTrafficReport(cityTraffic[0]));
+console.table(generateTrafficReport(cityTraffic[1]));
+console.table(generateTrafficReport(cityTraffic[2]));
+console.table(generateTrafficReport(cityTraffic[3]));
+console.table(generateTrafficReport(cityTraffic[4]));
 
 /**
  * [EXTRA] Papildoma užduotis
  *
  * Jei norite iššūkio, pridėkite funkciją findLeastBusyDay(data), kuri priima miesto duomenų masyvą ir nustato mažiausio eismo dieną visame mieste. Ji turėtų grąžinti savaitės dienos pavadinimą (pvz., "Pirmadienis").
  */
+
+const savaitesDienos = [
+  "Pirmadienis",
+  "Antradienis",
+  "Trečiadienis",
+  "Ketvirtadienis",
+  "Penktadienis",
+  "Šeštadienis",
+  "Sekmadienis",
+];
+let maziausiasEismas = [];
+function findLeastBusyDay(data) {
+  for (let i = 0; i < data[0].traffic.length; i++) {
+    maziausiasEismas.push(
+      data[0].traffic[i] +
+        data[1].traffic[i] +
+        data[2].traffic[i] +
+        data[3].traffic[i] +
+        data[4].traffic[i]
+    );
+  }
+
+  let maziausiasSkaicius = Math.min(...maziausiasEismas);
+
+  for (let i = 0; i < maziausiasEismas.length; i++) {
+    if (maziausiasEismas[i] === maziausiasSkaicius) {
+      return `Mažiausio intesyvumo mieste diena: ${savaitesDienos[i]} `;
+    }
+  }
+}
+
+console.log(findLeastBusyDay(cityTraffic));
