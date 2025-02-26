@@ -5,11 +5,35 @@ function didziausiasSkaiciusSarase(list) {
   if (!Array.isArray(list)) {
     return "Pateikta netinkamo tipo reikšmė.";
   }
+  if (list.length === 0) {
+    return "Pateiktas skaičius negali būti tuščias";
+  }
+  let biggestNumber = -Infinity;
 
-  return 0;
+  const hasNormalNumber = list.some(
+    (n) => typeof n === "number" && isFinite(n)
+  );
+  if (!hasNormalNumber) {
+    return "Sąraše nerasta tinkama reikšmė";
+  }
+
+  for (const number of list) {
+    if (number === Infinity) {
+      continue;
+    }
+    if (number > biggestNumber) {
+      biggestNumber = number;
+    }
+  }
+  if (biggestNumber === -Infinity) {
+    return "Sąraše nerasta tinkama reikšmė";
+  }
+
+  return biggestNumber;
 }
 
 // Tikriname netinkamus duomenų tipus
+
 {
   console.assert(
     didziausiasSkaiciusSarase("pomidoras") ===
@@ -41,18 +65,105 @@ function didziausiasSkaiciusSarase(list) {
     "Netinkamo tipas: object"
   );
 }
-
-//  Masyvas kuriame nėra didžiausio skaičiaus
-console.assert(
-  didziausiasSkaiciusSarase([]) === "Pateiktas skaičius negali būti tuščias",
-  "Tuščias masyvas"
-);
-console.assert(
-  didziausiasSkaiciusSarase([true]) ===
-    "Pateiktas skaičius negali būti tuščias",
-  "Tuščias masyvas"
-);
-console.assert(didziausiasSkaiciusSarase([true, 5]) === 5, "Tuščias masyvas");
+{
+  //  Masyvas kuriame nėra didžiausio skaičiaus
+  console.assert(
+    didziausiasSkaiciusSarase([]) === "Pateiktas skaičius negali būti tuščias",
+    "Tuščias masyvas"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([true]) === "Sąraše nerasta tinkama reikšmė",
+    "Tuščias masyvas"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([true]) === "Sąraše nerasta tinkama reikšmė",
+    "(boolean)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase(["string"]) === "Sąraše nerasta tinkama reikšmė",
+    "(string)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([[]]) === "Sąraše nerasta tinkama reikšmė",
+    " (array)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([{}]) === "Sąraše nerasta tinkama reikšmė",
+    "(object)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([Infinity]) === "Sąraše nerasta tinkama reikšmė",
+    "(infinity)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([-Infinity]) === "Sąraše nerasta tinkama reikšmė",
+    "Infinity"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([NaN]) === "Sąraše nerasta tinkama reikšmė",
+    "(NaN)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([undefined]) === "Sąraše nerasta tinkama reikšmė",
+    "(undefined)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([null]) === "Sąraše nerasta tinkama reikšmė",
+    "(null)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([didziausiasSkaiciusSarase]) ===
+      "Sąraše nerasta tinkama reikšmė",
+    "(function)"
+  );
+  // Masyvas, kuriame apart didžiausio skaičiaus yra ir kitų netinkamų reikšmių
+  console.assert(
+    didziausiasSkaiciusSarase(
+      [true, 5] === 5,
+      "Didžiausia reikšmė: 5 (boolean)"
+    )
+  );
+  console.assert(
+    didziausiasSkaiciusSarase(["string", 5]) === 5,
+    "Didžiausia reikšmė: 5 (string)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([5, "string"]) === 5,
+    "Didžiausia reikšmė: 5 (string)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([[], 5]) === 5,
+    "Didžiausia reikšmė: 5 (array)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([{}, 5]) === 5,
+    "Didžiausia reikšmė: 5 (object)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([Infinity, 5]) === 5,
+    "Didžiausia reikšmė: 5 (infinity)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([-Infinity, 5]) === 5,
+    "Didžiausia reikšmė: 5"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([NaN, 5]) === 5,
+    "Didžiausia reikšmė: 5 (NaN)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([undefined, 5]) === 5,
+    "Didžiausia reikšmė: 5 (undefined)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([null, 5]) === 5,
+    "Didžiausia reikšmė: 5 (null)"
+  );
+  console.assert(
+    didziausiasSkaiciusSarase([didziausiasSkaiciusSarase, 5]) === 5,
+    "Didžiausia reikšmė: 5 (function)"
+  );
+}
 
 // Sąrašas su sveikaisiais teigiamais skaičiais
 {
@@ -72,24 +183,22 @@ console.assert(didziausiasSkaiciusSarase([true, 5]) === 5, "Tuščias masyvas");
     didziausiasSkaiciusSarase([3, 2, 3]) === 3,
     "Masyvo pirmas skaičius: 3"
   );
-
   console.assert(
     didziausiasSkaiciusSarase([-5, 78, 14, 0, 18]) === 78,
     "Masyvo 'vidury': 78"
   );
   console.assert(
-    didziausiasSkaiciusSarase([-5, 18, 14, 0, 78]) === 3,
+    didziausiasSkaiciusSarase([-5, 18, 14, 0, 78]) === 78,
     "Masyvo paskutinis skaičius: 78"
   );
   console.assert(
-    didziausiasSkaiciusSarase([78, 18, 14, 0, -5]) === 3,
+    didziausiasSkaiciusSarase([78, 18, 14, 0, -5]) === 78,
     "Masyvo pirmas skaičius: 78"
   );
   console.assert(
     didziausiasSkaiciusSarase([69, 69, 69, 69]) === 69,
     "Masyve visos reikšmės vienodos"
   );
-
   console.assert(
     didziausiasSkaiciusSarase([69, 69, 69, 69, 66]) === 69,
     "pasikartojanti didžiausia reikšmė"
