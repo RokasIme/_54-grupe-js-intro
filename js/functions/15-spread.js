@@ -34,7 +34,7 @@ console.log(1, 11);
 console.log(...c);
 console.log(c);
 
-// spread kopijuoja tik pirmo lygio kopiją, palieka rederence į kitų lygių nuorodas ir jos kinta
+// spread kopijuoja tik pirmo lygio kopiją, palieka reference į kitų lygių nuorodas ir jos kinta
 
 const g = [
   [1, 11],

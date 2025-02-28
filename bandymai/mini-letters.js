@@ -24,14 +24,16 @@ function isrinktiRaides(text, step) {
 
   let result = "";
   if (step > 0) {
-    for (let i = 0; i < text.length; i++) {
+    for (let i = step - 1; i < text.length; i += step) {
       if (i % step === step - 1) {
         result += text[i];
       }
     }
-  } // else {
-  // for () {}
-  // }
+  } else {
+    for (let i = text.length + step; i >= 0; i += step) {
+      result += text[i];
+    }
+  }
   return result;
 }
 // normalūs testai

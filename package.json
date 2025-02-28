@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "oop": "node --watch js/oop/oop.js",
+    "mini:count": "node --watch bandymai/mini-count.js",
+    "sum": "node --watch bandymai/sum.js",
     "mini:letters": "node --watch bandymai/mini-letters.js",
     "mini:for": "node --watch bandymai/mini-for.js",
     "mini:max": "node --watch bandymai/mini-max.js",
