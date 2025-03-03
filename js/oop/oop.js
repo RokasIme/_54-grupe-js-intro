@@ -55,26 +55,9 @@ class Car {
     this.color = color;
     this.type = type;
     this.wheelSize = wheels;
+    this.wheels = 4;
   }
 }
 const audi = new Car("RS6", 4.0, 453, "black", "wagon", "R20");
 
 console.log(audi);
-
-function validateHello(greetings) {
-  if (
-    greetings.includes("hello") ||
-    greetings.includes(ciao) ||
-    greetings.includes(salut) ||
-    greetings.includes(hallo) ||
-    greetings.includes(hola) ||
-    greetings.includes("ahoj") ||
-    greetings.includes(czesc)
-  ) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-console.log(validateHello("ahoj"));

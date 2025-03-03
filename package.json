@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "oop:extends": "node --watch js/oop/oop-extends.js",
+    "oop:method": "node --watch js/oop/oop-method.js",
     "oop": "node --watch js/oop/oop.js",
     "mini:count": "node --watch bandymai/mini-count.js",
     "sum": "node --watch bandymai/sum.js",
