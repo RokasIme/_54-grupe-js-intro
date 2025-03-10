@@ -115,3 +115,17 @@ for (let i = 0; i < maryte.parents.length; i++) {
   console.log(parent.age);
   console.log(parent.isMaried);
 }
+
+/*
+
+You can define the object attributes during initialization, like this:
+
+let animal = {name: "dog"}
+you can also set/get some properties after the object definition, like this:
+
+let animal = {}
+animal.name = "dog"
+// or:
+animal["name"] = "dog"
+
+*/
